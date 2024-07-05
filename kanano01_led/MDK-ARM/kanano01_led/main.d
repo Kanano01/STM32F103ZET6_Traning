@@ -26,3 +26,5 @@ kanano01_led\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 kanano01_led\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 kanano01_led\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 kanano01_led\main.o: ../Core/Src/../../Drivers/BSP/led.h
+kanano01_led\main.o: ../Core/Src/../../Drivers/BSP/key.h
+kanano01_led\main.o: ../Core/Src/../../Drivers/BSP/beep.h

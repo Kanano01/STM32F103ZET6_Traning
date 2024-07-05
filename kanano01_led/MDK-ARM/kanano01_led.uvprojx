@@ -499,9 +499,14 @@
               <FilePath>..\Drivers\BSP\led.c</FilePath>
             </File>
             <File>
-              <FileName>led.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Drivers\BSP\led.h</FilePath>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\BSP\beep.c</FilePath>
             </File>
           </Files>
         </Group>

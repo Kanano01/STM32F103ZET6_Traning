@@ -20,6 +20,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "../../Drivers/BSP/led.h"
+#include "../../Drivers/BSP/key.h"
+#include "../../Drivers/BSP/beep.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -84,7 +86,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   /* USER CODE BEGIN 2 */
-
+	 led_init();
+	 key_init();
+	 beep_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -94,15 +98,24 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		char temp = led_init();
-		if (temp == 1)
+	
+//		if (temp == 1)
+//		{
+//			HAL_Delay(300);
+//			HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
+//			HAL_Delay(300);
+//			HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_5);
+//		}
+		if(key_scan())
 		{
-			HAL_Delay(300);
 			HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
-			HAL_Delay(300);
-			HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_5);
+		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_8);
 		}
-		
+		else
+		{
+	
+			HAL_Delay(10);
+		}
   }
   /* USER CODE END 3 */
 }
