@@ -22,6 +22,7 @@
 #include "../../Drivers/BSP/led.h"
 #include "../../Drivers/BSP/key.h"
 #include "../../Drivers/BSP/beep.h"
+#include "../../Drivers/BSP/nvic.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -89,6 +90,9 @@ int main(void)
 	 led_init();
 	 key_init();
 	 beep_init();
+	  exti_init();
+	 nvic_init();
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
