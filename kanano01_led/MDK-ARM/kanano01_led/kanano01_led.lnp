@@ -16,11 +16,14 @@
 "kanano01_led\stm32f1xx_hal_flash.o"
 "kanano01_led\stm32f1xx_hal_flash_ex.o"
 "kanano01_led\stm32f1xx_hal_exti.o"
+"kanano01_led\stm32f1xx_hal_uart.o"
+"kanano01_led\stm32f1xx_hal_usart.o"
 "kanano01_led\system_stm32f1xx.o"
 "kanano01_led\led.o"
 "kanano01_led\key.o"
 "kanano01_led\beep.o"
 "kanano01_led\nvic.o"
+"kanano01_led\usart.o"
 --strict --scatter "kanano01_led\kanano01_led.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

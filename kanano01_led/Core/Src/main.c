@@ -19,13 +19,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include "../../Drivers/BSP/led.h"
 #include "../../Drivers/BSP/key.h"
 #include "../../Drivers/BSP/beep.h"
 #include "../../Drivers/BSP/nvic.h"
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
+#include "../../Drivers/BSP/usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,7 +93,7 @@ int main(void)
 	 beep_init();
 	  exti_init();
 	 nvic_init();
-	
+	uart_init(115200);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -102,19 +103,20 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	
-//		if (temp == 1)
+		
+			if(g_rx_flag ==1)
+			{
+				HAL_UART_Transmit(&Uart1_handle,(uint8_t*)g_rx_buffer,1,2000);
+			while (__HAL_UART_GET_FLAG(&Uart1_handle,UART_FLAG_TC)!=1);
+			g_rx_flag =	0;
+			//printf("\r\n");
+			}
+//		if(key_scan())//按键按下
 //		{
-//			HAL_Delay(300);
 //			HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
-//			HAL_Delay(300);
-//			HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_5);
+//		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_8);
+
 //		}
-		if(key_scan())
-		{
-			HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_5);
-		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_8);
-		}
 		else
 		{
 	
